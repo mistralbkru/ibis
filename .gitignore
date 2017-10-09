@@ -57,3 +57,6 @@ scripts/ibis-testing*
 ibis_testing*
 .tox/
 .asv/
+
+# IDE
+.idea

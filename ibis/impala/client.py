@@ -187,7 +187,7 @@ class ImpalaCursor(object):
         self.released = False
         self.con.connection_pool_size += 1
 
-    def __del__(self):
+    def __exit__(self):
         self._close_cursor()
         with self.con.lock:
             self.con.connection_pool_size -= 1

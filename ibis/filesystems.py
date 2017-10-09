@@ -306,7 +306,7 @@ class WebHDFS(HDFS):
             return reader.read()
 
     @implements(HDFS.put)
-    def put(self, hdfs_path, resource, overwrite=False, verbose=None,
+    def put(self, hdfs_path, resource, overwrite=False, verbose=None, encoding='utf-8',
             **kwargs):
         verbose = verbose or options.verbose
         if isinstance(resource, six.string_types):
@@ -316,7 +316,7 @@ class WebHDFS(HDFS):
         else:
             # `resource` is a file-like object.
             hdfs_path = self.client.resolve(hdfs_path)
-            self.client.write(hdfs_path, data=resource, overwrite=overwrite,
+            self.client.write(hdfs_path, data=resource, overwrite=overwrite, encoding=encoding,
                               **kwargs)
             return hdfs_path
 

@@ -163,7 +163,8 @@ class DataFrameWriter(object):
                            sep=',',
                            quoting=csv.QUOTE_NONE,
                            escapechar='\\',
-                           na_rep='#NULL')
+                           na_rep='#NULL',
+                           encoding='utf-8')
             f.seek(0)
 
             if options.verbose:
