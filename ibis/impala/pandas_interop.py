@@ -160,7 +160,7 @@ class DataFrameWriter(object):
                 log('Writing DataFrame to temporary file')
 
             self.df.to_csv(f, header=False, index=False,
-                           sep=',',
+                           sep='\u0001',
                            quoting=csv.QUOTE_NONE,
                            escapechar='\\',
                            na_rep='#NULL',
@@ -191,7 +191,7 @@ class DataFrameWriter(object):
         return self.client.delimited_file(csv_dir, schema,
                                           name=temp_delimited_name,
                                           database=database,
-                                          delimiter=',',
+                                          delimiter='\u0001',
                                           na_rep='#NULL',
                                           escapechar='\\\\',
                                           external=True,
